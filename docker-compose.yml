@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  nginx:
+    image: 'bitnami/nginx:latest'
+    ports:
+      - '80:8080'
+      # - '443:8443'
+    volumes:
+      - ./app:/app
+      - ./check-mobile.conf:/bitnami/nginx/conf/check-mobile.conf:ro
+      - ./server.conf:/bitnami/nginx/conf/vhosts/server.conf:ro
